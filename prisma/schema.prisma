@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("customer") // "admin" | "customer"
+  tickets   Ticket[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TravelAgency {
+  id          String   @id @default(cuid())
+  name        String
+  logo        String
+  description String
+  rating      Float
+  totalBuses  Int
+  routes      String   // Stored as JSON string
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  schedules   BusSchedule[]
+}
+
+model BusSchedule {
+  id            String   @id @default(cuid())
+  agencyId      String
+  agency        TravelAgency @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  agencyName    String
+  busName       String
+  origin        String
+  destination   String
+  date          String
+  departureTime String
+  arrivalTime   String
+  price         Int
+  totalSeats    Int
+  bookedSeats   String   // Stored as JSON string []
+  busClass      String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Ticket {
+  id              String   @id @default(cuid())
+  passengerId     String
+  passenger       User     @relation(fields: [passengerId], references: [id], onDelete: Cascade)
+  passengerName   String
+  passengerNik    String
+  passengerPhone  String
+  agencyName      String
+  busName         String
+  busClass        String
+  origin          String
+  destination     String
+  date            String
+  departureTime   String
+  arrivalTime     String
+  seatNumber      String
+  price           Int
+  paymentMethod   String
+  status          String   @default("Menunggu Pembayaran")
+  bookingDate     String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

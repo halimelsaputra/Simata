@@ -89,44 +89,44 @@ export default function CustomerNavbar({ onNavigate }: Props) {
           (() => {
             const isActive = item.key === 'history' ? pathname === '/history' : pathname === '/home';
             return (
-          <motion.button
-            key={item.key}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => onNavigate(item.target)}
-            style={{
-              border: 'none',
-              background: 'transparent',
-              color: isActive ? '#333333' : 'rgba(51, 51, 51, 0.7)',
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              cursor: 'pointer',
-              transition: 'color 0.3s',
-              fontFamily: 'Inter, sans-serif',
-              padding: 0,
-              position: 'relative',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#333333';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = isActive ? '#333333' : 'rgba(51, 51, 51, 0.7)';
-            }}
-          >
-            {item.label}
-            <span
-              style={{
-                position: 'absolute',
-                bottom: -4,
-                left: 0,
-                height: 1,
-                width: isActive ? '100%' : 0,
-                background: '#333333',
-                borderRadius: 1,
-                transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
-              }}
-            />
-          </motion.button>
+              <motion.button
+                key={item.key}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => onNavigate(item.target)}
+                style={{
+                  border: 'none',
+                  background: 'transparent',
+                  color: isActive ? '#333333' : 'rgba(51, 51, 51, 0.7)',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  transition: 'color 0.3s',
+                  fontFamily: 'Inter, sans-serif',
+                  padding: 0,
+                  position: 'relative',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#333333';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = isActive ? '#333333' : 'rgba(51, 51, 51, 0.7)';
+                }}
+              >
+                {item.label}
+                <span
+                  style={{
+                    position: 'absolute',
+                    bottom: -4,
+                    left: 0,
+                    height: 1,
+                    width: isActive ? '100%' : 0,
+                    background: '#333333',
+                    borderRadius: 1,
+                    transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
+                  }}
+                />
+              </motion.button>
             );
           })()
         ))}

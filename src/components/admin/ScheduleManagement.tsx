@@ -98,7 +98,9 @@ export default function ScheduleManagement() {
               <th style={{ padding: '20px 24px' }}>Kelas</th>
               <th style={{ padding: '20px 24px' }}>Kursi</th>
               <th style={{ padding: '20px 24px' }}>Harga</th>
-              <th style={{ width: 140, padding: '20px 24px', textAlign: 'right' }}>Aksi</th>
+              <th style={{ padding: '20px 24px', textAlign: 'center' }}>MANIFEST</th>
+              <th style={{ padding: '20px 24px', textAlign: 'center' }}>EDIT</th>
+              <th style={{ padding: '20px 24px', textAlign: 'center' }}>AKSI</th>
             </tr>
           </thead>
           <motion.tbody variants={staggerContainer} initial="hidden" animate="visible">
@@ -109,8 +111,8 @@ export default function ScheduleManagement() {
                   key={s.id}
                   variants={staggerItem}
                   style={{ transition: 'background 0.2s' }}
-                  onMouseEnter={(e)=> e.currentTarget.style.background = 'var(--bg-main)'}
-                  onMouseLeave={(e)=> e.currentTarget.style.background = 'transparent'}
+                  onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-main)'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                 >
                   <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)' }}>
                     <div style={{ fontWeight: 700, color: 'var(--text-main)', fontSize: 15 }}>{s.agencyName}</div>
@@ -134,27 +136,48 @@ export default function ScheduleManagement() {
                     </span>
                   </td>
                   <td style={{ fontWeight: 800, color: 'var(--text-main)', padding: '20px 24px', borderTop: '1px solid var(--border-subtle)' }}>{formatPrice(s.price)}</td>
-                  <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)', textAlign: 'right' }}>
-                    <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
-                      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="btn btn-ghost btn-icon btn-sm" onClick={() => setManifestId(s.id)} title="Manifest">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--info)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
-                          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-                        </svg>
-                      </motion.button>
-                      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="btn btn-ghost btn-icon btn-sm" onClick={() => openEdit(s)}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
-                          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-                        </svg>
-                      </motion.button>
-                      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="btn btn-ghost btn-icon btn-sm" onClick={() => setShowDelete(s.id)}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="3 6 5 6 21 6" />
-                          <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" />
-                        </svg>
-                      </motion.button>
-                    </div>
+                  <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn btn-ghost"
+                      onClick={() => setManifestId(s.id)}
+                      title="Manifest"
+                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, margin: '0 auto', padding: '8px', height: 'auto' }}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                      </svg>
+                    </motion.button>
+                  </td>
+                  <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn btn-ghost"
+                      onClick={() => openEdit(s)}
+                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, margin: '0 auto', padding: '8px', height: 'auto' }}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                      </svg>
+                    </motion.button>
+                  </td>
+                  <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)', textAlign: 'center' }}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="btn btn-ghost"
+                      onClick={() => setShowDelete(s.id)}
+                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, margin: '0 auto', padding: '8px', height: 'auto' }}
+                    >
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+                      </svg>
+                    </motion.button>
                   </td>
                 </motion.tr>
               );

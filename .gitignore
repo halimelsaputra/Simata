@@ -38,3 +38,5 @@ coverage/
 # Local temp
 *.tmp
 *.temp
+
+/src/generated/prisma

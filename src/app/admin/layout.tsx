@@ -38,7 +38,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         activePage={activePage}
         onNavigate={(page) => router.push(PAGE_MAP[page] || '/admin/dashboard')}
       />
-      <main style={{ marginLeft: 'var(--sidebar-w)', flex: 1, padding: '40px 48px' }}>
+      <main style={{ marginLeft: 'var(--sidebar-w, 280px)', flex: 1, padding: '40px 48px', overflowX: 'hidden' }}>
         {children}
       </main>
     </div>

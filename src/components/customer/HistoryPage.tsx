@@ -122,8 +122,8 @@ export default function HistoryPage() {
                     variants={staggerItem}
                     style={{ cursor: 'pointer', transition: 'background 0.2s' }}
                     onClick={() => setModalTicket(ticket)}
-                    onMouseEnter={(e)=> e.currentTarget.style.background = 'var(--bg-main)'}
-                    onMouseLeave={(e)=> e.currentTarget.style.background = 'transparent'}
+                    onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-main)'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                   >
                     <td style={{ padding: '20px 24px', borderTop: '1px solid var(--border-subtle)' }}>
                       <span style={{ fontWeight: 700, color: 'var(--text-main)', fontFamily: 'monospace', fontSize: 14 }}>
@@ -243,53 +243,53 @@ export default function HistoryPage() {
               </div>
 
               {/* Ticket body */}
-                <div style={{ padding: '32px 36px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 36px', marginBottom: 28 }}>
-                    {[
-                      { label: 'Penumpang', value: modalTicket.passengerName },
-                      { label: 'NIK', value: modalTicket.passengerNik },
-                      { label: 'Bus', value: `${modalTicket.agencyName} — ${modalTicket.busName}` },
-                      { label: 'Kelas', value: modalTicket.busClass },
-                      { label: 'Tanggal', value: modalTicket.date },
-                      { label: 'Waktu', value: `${modalTicket.departureTime} – ${modalTicket.arrivalTime}` },
-                      { label: 'Kursi', value: modalTicket.seatNumber },
-                      { label: 'Pembayaran', value: modalTicket.paymentMethod },
-                    ].map((item) => (
-                      <div key={item.label}>
-                        <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
-                          {item.label}
-                        </div>
-                        <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-main)' }}>
-                          {item.value}
-                        </div>
+              <div style={{ padding: '32px 36px', backgroundColor: 'var(--bg-main)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px 36px', marginBottom: 28 }}>
+                  {[
+                    { label: 'Penumpang', value: modalTicket.passengerName },
+                    { label: 'NIK', value: modalTicket.passengerNik },
+                    { label: 'Bus', value: `${modalTicket.agencyName} — ${modalTicket.busName}` },
+                    { label: 'Kelas', value: modalTicket.busClass },
+                    { label: 'Tanggal', value: modalTicket.date },
+                    { label: 'Waktu', value: `${modalTicket.departureTime} – ${modalTicket.arrivalTime}` },
+                    { label: 'Kursi', value: modalTicket.seatNumber },
+                    { label: 'Pembayaran', value: modalTicket.paymentMethod },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
+                        {item.label}
                       </div>
-                    ))}
-                  </div>
-
-                  <hr className="divider" />
-
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 12 }}>
-                    <div>
-                      <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 4 }}>Total Harga</div>
-                      <div style={{ fontSize: 26, fontWeight: 800, color: 'var(--primary)', letterSpacing: '-0.02em', fontFamily: 'Outfit' }}>
-                        {formatPrice(modalTicket.price)}
+                      <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-main)' }}>
+                        {item.value}
                       </div>
                     </div>
-                    <span style={{
-                      padding: '8px 20px', borderRadius: 'var(--radius-full)',
-                      background: STATUS_CONFIG[modalTicket.status].bg,
-                      color: STATUS_CONFIG[modalTicket.status].color,
-                      fontWeight: 600, fontSize: 14,
-                    }}>
-                      {modalTicket.status}
-                    </span>
-                  </div>
+                  ))}
+                </div>
 
-                  {/* Simulated barcode */}
-                  <div style={{
-                    marginTop: 28, padding: '20px 0', borderTop: '2px dashed var(--border-subtle)',
-                    display: 'flex', justifyContent: 'center', gap: 2,
+                <hr className="divider" />
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 12 }}>
+                  <div>
+                    <div style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 4 }}>Total Harga</div>
+                    <div style={{ fontSize: 26, fontWeight: 800, color: 'var(--primary)', letterSpacing: '-0.02em', fontFamily: 'Outfit' }}>
+                      {formatPrice(modalTicket.price)}
+                    </div>
+                  </div>
+                  <span style={{
+                    padding: '8px 20px', borderRadius: 'var(--radius-full)',
+                    background: STATUS_CONFIG[modalTicket.status].bg,
+                    color: STATUS_CONFIG[modalTicket.status].color,
+                    fontWeight: 600, fontSize: 14,
                   }}>
+                    {modalTicket.status}
+                  </span>
+                </div>
+
+                {/* Simulated barcode */}
+                <div style={{
+                  marginTop: 28, padding: '20px 0', borderTop: '2px dashed var(--border-subtle)',
+                  display: 'flex', justifyContent: 'center', gap: 2,
+                }}>
                   {Array.from({ length: 40 }, (_, i) => (
                     <div key={i} style={{
                       width: i % 3 === 0 ? 3 : 2,
@@ -312,8 +312,9 @@ export default function HistoryPage() {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        )
+        }
+      </AnimatePresence >
+    </motion.div >
   );
 }

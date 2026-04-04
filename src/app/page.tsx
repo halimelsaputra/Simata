@@ -696,8 +696,8 @@ function MasukSection({
 
     let ok = false;
     if (isLogin) {
-      const customerOk = login(formData.email, formData.password, 'customer');
-      const adminOk = !customerOk && login(formData.email, formData.password, 'admin');
+      let customerOk = await login(formData.email, formData.password, 'customer');
+      let adminOk = !customerOk ? await login(formData.email, formData.password, 'admin') : false;
       ok = customerOk || adminOk;
       if (!ok) {
         setError('Email atau password salah.');
@@ -708,9 +708,9 @@ function MasukSection({
         setIsSubmitting(false);
         return;
       }
-      ok = register(formData.name.trim(), formData.email, formData.password, 'customer');
+      ok = await register(formData.name.trim(), formData.email, formData.password);
       if (!ok) {
-        setError('Email sudah terdaftar.');
+        setError('Email sudah terdaftar atau terjadi kesalahan.');
       }
     }
 
