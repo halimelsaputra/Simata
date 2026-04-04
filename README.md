@@ -1,3 +1,10 @@
+# **Tugas Proyek Mata Kuliah Proyek Perangkat Lunak** 
+## Disusun oleh: 
+* Halim Elsa Putra ( 2308107010062 )
+* M. Milan Ramadhan ( 2308107010064 )
+* Amirul Mirdas ( 2308107010070 )
+* Mahardika Shiddiq Anshari ( 23081070100 )
+
 # 🚌 SIMATA (Sistem Manajemen Tiket Agen Bus)
 
 SIMATA adalah sebuah platform aplikasi web modern yang dirancang untuk memfasilitasi dua sisi operasional agen perjalanan/bus:
