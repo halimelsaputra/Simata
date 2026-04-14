@@ -3,7 +3,7 @@
 * Halim Elsa Putra ( 2308107010062 )
 * M. Milan Ramadhan ( 2308107010064 )
 * Amirul Mirdas ( 2308107010070 )
-* Mahardika Shiddiq Anshari ( 23081070100 )
+* Mahardika Shiddiq Anshari ( 23081070132 )
 
 # 🚌 SIMATA (Sistem Manajemen Tiket Agen Bus)
 
